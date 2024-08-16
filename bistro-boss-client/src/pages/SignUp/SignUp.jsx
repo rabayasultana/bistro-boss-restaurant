@@ -1,7 +1,17 @@
 import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
+
+    const onSubmit = data => {
+        console.log(data);
+    };
+
+    console.log(watch("example"));
+
   return (
     <div>
       <Helmet>
@@ -18,19 +28,18 @@ const SignUp = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            {/* <form onSubmit={handleSubmit(onSubmit)} className="card-body"> */}
-            <form  className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
-                {/* <input
+                <input
                   type="text"
                   {...register("name", { required: true })}
                   name="name"
                   placeholder="Name"
                   className="input input-bordered"
-                /> */}
+                />
                 {/* {errors.name && (
                   <span className="text-red-600">Name is required</span>
                 )} */}
@@ -39,12 +48,12 @@ const SignUp = () => {
                 <label className="label">
                   <span className="label-text">Photo URL</span>
                 </label>
-                {/* <input
+                <input
                   type="text"
                   {...register("photoURL", { required: true })}
                   placeholder="Photo URL"
                   className="input input-bordered"
-                /> */}
+                />
                 {/* {errors.photoURL && (
                   <span className="text-red-600">Photo URL is required</span>
                 )} */}
@@ -53,13 +62,13 @@ const SignUp = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                {/* <input
+                <input
                   type="email"
                   {...register("email", { required: true })}
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
-                /> */}
+                />
                 {/* {errors.email && (
                   <span className="text-red-600">Email is required</span>
                 )} */}
@@ -68,7 +77,7 @@ const SignUp = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                {/* <input
+                <input
                   type="password"
                   {...register("password", {
                     required: true,
@@ -78,7 +87,7 @@ const SignUp = () => {
                   })}
                   placeholder="password"
                   className="input input-bordered"
-                /> */}
+                />
                 {/* {errors.password?.type === "required" && (
                   <p className="text-red-600">Password is required</p>
                 )} */}

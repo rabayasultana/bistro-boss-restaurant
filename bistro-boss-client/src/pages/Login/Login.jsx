@@ -6,6 +6,7 @@ import {
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from '../../providers/AuthProvider'
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -26,6 +27,15 @@ const Login = () => {
     .then(result => {
         const user = result.user;
         console.log(user);
+        Swal.fire({
+            title: 'User Login Successful.',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
     })
   };
 

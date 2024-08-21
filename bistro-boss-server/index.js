@@ -41,17 +41,17 @@ async function run() {
       })
 
       // carts collection
-      // app.get('/carts', async (req, res) => {
-      //   const email = req.query.email;
-      //   const query = { email: email };
-      //   const result = await cartCollection.find(query).toArray();
-      //   res.send(result);
-      // });
-
       app.get('/carts', async (req, res) => {
-        const result = await cartCollection.find().toArray();
+        const email = req.query.email;
+        const query = { email: email };
+        const result = await cartCollection.find(query).toArray();
         res.send(result);
-      })
+      });
+
+      // app.get('/carts', async (req, res) => {
+      //   const result = await cartCollection.find().toArray();
+      //   res.send(result);
+      // })
 
     app.post('/carts', async (req, res) => {
       const cartItem = req.body;

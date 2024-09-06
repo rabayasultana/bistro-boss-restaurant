@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SectionTitle from "../../../components/shared/SectionTitle";
 import useMenu from "../../../hooks/useMenu";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
@@ -75,14 +75,14 @@ const ManageItems = () => {
                   <td>{item.name}</td>
                   <td className="text-right">${item.price}</td>
                   <td>
-                    {/* <Link to={`/dashboard/updateItem/${item._id}`}> */}
+                    <Link to={`/dashboard/updateItem/${item._id}`}>
                     <button className="btn btn-ghost btn-lg bg-orange-500">
                       <FaEdit
                         className="text-white 
                                         "
                       ></FaEdit>
                     </button>
-                    {/* </Link> */}
+                    </Link>
                   </td>
                   <td>
                     <button
